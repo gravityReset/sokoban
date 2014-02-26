@@ -34,6 +34,10 @@ public class Map {
 	//=================================
 	//===========Méthodes :============
 	//=================================
+	
+	/**
+	 * affiche la map en console
+	 */
 	public void Show()
 	{
 		for(ArrayList<Element> tabElements : structure)
@@ -46,6 +50,10 @@ public class Map {
 		}
 	}
 	
+	
+	/**
+	 * Charge la map demandé
+	 */
 	public void Load()
 	{
 		structure.clear();
@@ -73,6 +81,11 @@ public class Map {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param caratere de l'element
+	 * @return l'element en raport avec sont caratere
+	 */
 	private Element GetElem(char type)
 	{
 		switch (type)

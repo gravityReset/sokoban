@@ -9,6 +9,11 @@ public class Launcher
 	{
 		System.out.println("coucou");
 		
+		
+		Map map = new Map(0);
+		map.Load();
+		map.Show();
+		
 		// ---------- test timer (attendre 3sec) -------------
 		Timer.StartTimer();
 		
