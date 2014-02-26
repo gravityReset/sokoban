@@ -32,33 +32,45 @@ public abstract class ElementMovable  extends Element {
 		
 		case "z": // Si on veux déplacer vers le haut :
 		{
-			//Si on a un ElementNonMovable :
-			if( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Wall)
-			{
-				return false;
-			}
-			else
-			{
-				
-				//On parcourt le tableau d'élément mouvable :
-				ElementMovable el;
-				if( (el =  m.getElemMovable(CoordonneeX, CoordonneeY-1)) != null)
-				{
-					//Si on a une Box au dessus de Mario on tente de déplacer
-					if(!el.Deplacer("z", m))
-					{
-						return false;
-					}
-				}
-				this.CoordonneeY -= 1;
-				return true;
-			}
-			
-			
+			return testCollision(m, map, CoordonneeX,CoordonneeY-1);
 		}
-			
+		case "s":
+		{
+			return testCollision(m, map, CoordonneeX,CoordonneeY+1);
+		}
+		case "q":
+		{
+			return testCollision(m, map, CoordonneeX-1,CoordonneeY);
+		}
+		case "d":
+		{
+			return testCollision(m, map, CoordonneeX+1,CoordonneeY);
+		}
 		default:
-			break;
+			return false;
+		}
+	}
+	private boolean testCollision(Map m,ArrayList<ArrayList<ElementNonMovable>> map, int X, int Y) {
+		//Si on a un ElementNonMovable :
+		if( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Wall)
+		{
+			return false;
+		}
+		else
+		{
+			
+			//On parcourt le tableau d'élément mouvable :
+			ElementMovable el;
+			if( (el =  m.getElemMovable(X, Y)) != null)
+			{
+				//Si on a une Box au dessus de Mario on tente de déplacer
+				if(!el.Deplacer("z", m))
+				{
+					return false;
+				}
+			}
+			this.CoordonneeY -= 1;
+			return true;
 		}
 	}
 	
