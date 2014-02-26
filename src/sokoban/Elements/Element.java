@@ -13,6 +13,6 @@ public abstract class Element {
 	//===========Méthodes :============
 	//=================================
 	
-	protected abstract String Show();
+	public abstract String Show();
 	
 }
