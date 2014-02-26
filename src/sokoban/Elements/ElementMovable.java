@@ -28,12 +28,12 @@ public abstract class ElementMovable  extends Element {
 		case "z": // Si on veux déplacer vers le haut :
 		{
 			//Si on a un ElementNonMovable :
-			if( map.get(CoordonneeX).get(CoordonneeY) instanceof Wall)
+			if( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Wall)
 			{
 				break;
 			}
 			//Si on a un ElementMovable :
-			else if ( map.get(CoordonneeX).get(CoordonneeY) instanceof ElementMovable) {
+			else if ( map.get(CoordonneeX).get(CoordonneeY-1) instanceof ElementMovable) {
 				Deplacer("z", m);
 				break;
 			}
