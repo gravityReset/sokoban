@@ -19,7 +19,7 @@ public abstract class ElementMovable  extends Element {
 	//=================================
 	
 	public abstract String Show();
-	public void Deplacer(String s, Map m)
+	public boolean Deplacer(String s, Map m)
 	{
 		//
 		//
@@ -35,8 +35,7 @@ public abstract class ElementMovable  extends Element {
 			//Si on a un ElementNonMovable :
 			if( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Wall)
 			{
-				
-				break;
+				return false;
 			}
 			else
 			{
@@ -46,11 +45,15 @@ public abstract class ElementMovable  extends Element {
 				if( (el =  m.getElemMovable(CoordonneeX, CoordonneeY-1)) != null)
 				{
 					//Si on a une Box au dessus de Mario on tente de déplacer
-					el.Deplacer("z", m);
+					if(!el.Deplacer("z", m))
+					{
+						return false;
+					}
 				}
 				this.CoordonneeY -= 1;
+				return true;
 			}
-			break;
+			
 			
 		}
 			
