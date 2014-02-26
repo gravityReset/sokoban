@@ -1,4 +1,4 @@
-package sokoban;
+package sokoban.Utils;
 import java.util.Scanner;
 
 public class EntreeClavier {

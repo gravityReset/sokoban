@@ -1,4 +1,4 @@
-package sokoban;
+package sokoban.Utils;
 
 public class Timer {
 	
@@ -7,12 +7,12 @@ public class Timer {
 	static long chrono = 0 ; 
 	 
 	// Lancement du chrono 
-	static void StartTimer() { 
+	public static void StartTimer() { 
 		chrono = java.lang.System.currentTimeMillis() ; 
 	} 
 	 
 	// Arret du chrono 
-	static long StopTimer() { 
+	public static long StopTimer() { 
 		long chrono2 = java.lang.System.currentTimeMillis() ; 
 		long temps = chrono2 - chrono ;
 		
