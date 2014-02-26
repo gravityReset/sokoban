@@ -13,7 +13,7 @@ public class Score{
 		EntreeClavier e = new EntreeClavier();
 		String pseudo = e.NextLine();
 		System.out.println("Votre chrono est de:"+ score);		
-		
+		EnregistrementScore(score, pseudo, level);
 	}
 	public static void EnregistrementScore(long score, String pseudo, int level)
 	{

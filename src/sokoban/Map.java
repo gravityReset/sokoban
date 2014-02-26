@@ -156,6 +156,12 @@ public class Map {
 		return new ElementVide(x,y);
 	}
 	
+	/**
+	 * 
+	 * @param x coordonnée en x
+	 * @param y coordonnée en y
+	 * @return renvoie null ou l'objet movable de cette position
+	 */
 	public ElementMovable getElemMovable(int x,int y)
 	{
 		for(ElementMovable elem  : elemMouvable)
@@ -188,7 +194,10 @@ public class Map {
 		return level;
 	}
 
-
+	/**
+	 * 
+	 * @return the element Movable array
+	 */
 	public ArrayList<ElementMovable> getElemMouvable()
 	{
 		return elemMouvable;
