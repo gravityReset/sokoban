@@ -11,8 +11,14 @@ public class Timer {
 	 
 	// Arret du chrono 
 	static void Stop_Chrono() { 
+		long minute=0, seconde=0;
 		long chrono2 = java.lang.System.currentTimeMillis() ; 
 		long temps = chrono2 - chrono ;
-		System.out.println("Temps ecoule = " + temps + " ms") ; 
+		
+		// on retranche les ms car inutile du point de vue humain
+		temps/=1000;
+		minute=temps/60;
+		seconde=temps%60;	
+		System.out.println("Temps ecoule = " + minute + "min"+seconde+"s") ; 
 	} 
 }
