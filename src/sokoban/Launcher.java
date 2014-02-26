@@ -11,7 +11,7 @@ public class Launcher
 		// ---------- test timer (attendre 3sec) -------------
 		Timer.StartTimer();
 		
-		Thread.sleep(61000);
+		Thread.sleep(3000);
 		
 		
 		

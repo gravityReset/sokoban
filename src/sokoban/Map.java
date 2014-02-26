@@ -5,6 +5,8 @@ package sokoban;
 
 import java.util.ArrayList;
 
+import sokoban.Elements.*;
+
 
 
 /**
