@@ -78,7 +78,7 @@ public abstract class ElementMovable  extends Element {
 	 */
 	private boolean testCollision(Map m,ArrayList<ArrayList<ElementNonMovable>> map, int X, int Y) {
 		//Si on a un ElementNonMovable :
-		if( map.get(X).get(Y-1) instanceof Wall)
+		if( map.get(X).get(Y) instanceof Wall)
 		{
 			return false;
 		}

@@ -14,9 +14,14 @@ public class Launcher
 		map.Load();
 		
 		map.Show();
+		int i=0;
+		while(i!=10)
+		{
+			map.Deplacer();
+			map.Show();
+			i++;
+		}
 		
-		map.Deplacer();
-		map.Show();
 		// ---------- test timer (attendre 3sec) -------------
 		Timer.StartTimer();
 		
