@@ -25,7 +25,10 @@ import sokoban.Elements.*;
 public class Map {
 	private int level;
 	private ArrayList<ArrayList<ElementNonMovable>> structure ;//tableau de Element
-	private ArrayList<ElementMovable> elemMouvalble ;//tableau de Element
+	private ArrayList<ElementMovable> elemMouvable ;//tableau de Element
+	
+
+
 	/**
 	 * Map
 	 * @param level
@@ -34,7 +37,7 @@ public class Map {
 	{
 		this.level = level;
 		structure=  new ArrayList<ArrayList<ElementNonMovable>>();// -> structure[0][0] = new ArrayList< ArrayList<Element>>;
-		elemMouvalble = new ArrayList<ElementMovable>();
+		elemMouvable = new ArrayList<ElementMovable>();
 	}
 	//=================================
 	//===========Méthodes :============
@@ -98,7 +101,7 @@ public class Map {
 							 structure.get(y).add((ElementNonMovable)elem);
 						 else
 						 {
-							 elemMouvalble.add((ElementMovable)elem);
+							 elemMouvable.add((ElementMovable)elem);
 							 structure.get(y).add(new ElementVide(x, y));
 						 }
 							 
@@ -164,5 +167,8 @@ public class Map {
 	}
 
 
-	
+	public ArrayList<ElementMovable> getElemMouvable()
+	{
+		return elemMouvable;
+	}
 }
