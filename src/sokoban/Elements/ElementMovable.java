@@ -22,7 +22,10 @@ public abstract class ElementMovable  extends Element {
 	public void Deplacer(String s, Map m)
 	{
 		//On récupère la map
-		ArrayList< ArrayList<Element>> map = m.getStructure();
+		ArrayList<ArrayList<ElementNonMovable>> map = m.getStructure();
+		//On récupère les éléments mouvable :
+		
+		
 		switch (s) {
 		
 		case "z": // Si on veux déplacer vers le haut :
@@ -33,7 +36,8 @@ public abstract class ElementMovable  extends Element {
 				break;
 			}
 			//Si on a un ElementMovable :
-			else if ( map.get(CoordonneeX).get(CoordonneeY-1) instanceof ElementMovable) {
+			else if ( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Box) 
+			{
 				Deplacer("z", m);
 				break;
 			}
