@@ -13,8 +13,6 @@ public abstract class Element {
 	//===========Méthodes :============
 	//=================================
 	
-	public String Show() {
-		return null;
-	}
+	public abstract String Show();
 	
 }
