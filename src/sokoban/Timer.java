@@ -6,13 +6,13 @@ public class Timer {
 	 
 	// Lancement du chrono 
 	static void Go_Chrono() { 
-	chrono = java.lang.System.currentTimeMillis() ; 
+		chrono = java.lang.System.currentTimeMillis() ; 
 	} 
 	 
 	// Arret du chrono 
 	static void Stop_Chrono() { 
-	long chrono2 = java.lang.System.currentTimeMillis() ; 
-	long temps = chrono2 - chrono ; 
-	System.out.println("Temps ecoule = " + temps + " ms") ; 
+		long chrono2 = java.lang.System.currentTimeMillis() ; 
+		long temps = chrono2 - chrono ;
+		System.out.println("Temps ecoule = " + temps + " ms") ; 
 	} 
 }
