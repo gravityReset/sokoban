@@ -34,15 +34,15 @@ public abstract class ElementMovable  extends Element {
 		{
 			return testCollision(m, map, CoordonneeX,CoordonneeY-1);
 		}
-		case "s":
+		case "s": // Si on veux déplacer vers le Bas :
 		{
 			return testCollision(m, map, CoordonneeX,CoordonneeY+1);
 		}
-		case "q":
+		case "q": // Si on veux déplacer vers la Gauche :
 		{
 			return testCollision(m, map, CoordonneeX-1,CoordonneeY);
 		}
-		case "d":
+		case "d": // Si on veux déplacer vers la Droite :
 		{
 			return testCollision(m, map, CoordonneeX+1,CoordonneeY);
 		}
