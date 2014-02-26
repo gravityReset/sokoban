@@ -24,7 +24,7 @@ public abstract class ElementMovable  extends Element {
 		//On récupère la map
 		ArrayList<ArrayList<ElementNonMovable>> map = m.getStructure();
 		//On récupère les éléments mouvable :
-		
+		ArrayList<ElementMovable> elMouv = m.getElemMouvable();
 		
 		switch (s) {
 		
@@ -33,16 +33,21 @@ public abstract class ElementMovable  extends Element {
 			//Si on a un ElementNonMovable :
 			if( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Wall)
 			{
-				break;
-			}
-			//Si on a un ElementMovable :
-			else if ( map.get(CoordonneeX).get(CoordonneeY-1) instanceof Box) 
-			{
-				Deplacer("z", m);
+				
 				break;
 			}
 			else
 			{
+				//On parcourt le tableau d'élément mouvable :
+				for (ElementMovable i : elMouv) {
+					//On test si une Box se trouve au dessus de mario :
+					if(i.CoordonneeY == this.CoordonneeY-1)
+					{
+						//Si c'est le cas, on test si elle peux elle aussi se déplacer vers le haut
+						Deplacer("z", m);
+						break;
+					}
+				}
 				break;
 			}
 			
