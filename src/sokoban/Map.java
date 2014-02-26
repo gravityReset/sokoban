@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 
 
+import java.util.concurrent.ExecutionException;
+
 import sokoban.Elements.*;
 
 
@@ -39,6 +41,8 @@ public class Map {
 		structure=  new ArrayList<ArrayList<ElementNonMovable>>();// -> structure[0][0] = new ArrayList< ArrayList<Element>>;
 		elemMouvable = new ArrayList<ElementMovable>();
 	}
+	
+	
 	//=================================
 	//===========Méthodes :============
 	//=================================
@@ -48,12 +52,24 @@ public class Map {
 	 */
 	public void Show()
 	{
+		int x = 0, y = 0;
 		for(ArrayList<ElementNonMovable> tabElements : structure)
 		{
+			x = 0;
 			for(ElementNonMovable elem  : tabElements)
 			{
-				System.out.print(elem.Show());
+				if(getElemMovable(x, y) != null)
+				{
+					System.out.print(elem.Show());
+				}
+				else
+				{
+					System.out.print(elem.Show());
+				}
+				
+				x++;
 			}
+			y++;
 			System.out.println();
 		}
 	}
@@ -143,6 +159,15 @@ public class Map {
 		return new ElementVide(x,y);
 	}
 	
+	public ElementMovable getElemMovable(int x,int y)
+	{
+		for(ElementMovable elem  : elemMouvable)
+		{
+			if(elem.getCoordonneeX() == x && elem.getCoordonneeY()==y)
+				return elem;
+		}
+		return null;
+	}
 	
 	//=================================
 	//===========Getter et setter :====
