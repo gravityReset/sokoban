@@ -14,5 +14,6 @@ public abstract class ElementMovable  extends Element {
 	//=================================
 	
 	public abstract void Deplacer();
+	public abstract String Show();
 	
 }
