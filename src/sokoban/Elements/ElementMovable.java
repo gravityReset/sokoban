@@ -22,6 +22,7 @@ public abstract class ElementMovable  extends Element {
 	public void Deplacer(String s, Map m)
 	{
 		//
+		//
 		//On récupère la map
 		ArrayList<ArrayList<ElementNonMovable>> map = m.getStructure();
 		//On récupère les éléments mouvable :
