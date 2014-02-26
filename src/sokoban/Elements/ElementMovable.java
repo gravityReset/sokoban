@@ -30,7 +30,7 @@ public abstract class ElementMovable  extends Element {
 		
 		case "z": // Si on veux déplacer vers le haut :
 		{
-			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1,"z"))
 			{
 				CoordonneeY -= 1;
 				return true;
@@ -40,7 +40,7 @@ public abstract class ElementMovable  extends Element {
 		}
 		case "s": // Si on veux déplacer vers le Bas :
 		{
-			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1,"s"))
 			{
 				CoordonneeY += 1;
 				return true;
@@ -50,7 +50,7 @@ public abstract class ElementMovable  extends Element {
 		}
 		case "q": // Si on veux déplacer vers la Gauche :
 		{
-			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1,"q"))
 			{
 				CoordonneeX -= 1;
 				return true;
@@ -60,7 +60,7 @@ public abstract class ElementMovable  extends Element {
 		}
 		case "d": // Si on veux déplacer vers la Droite :
 		{
-			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1,"d"))
 			{
 				CoordonneeX += 1;
 				return true;
@@ -76,7 +76,7 @@ public abstract class ElementMovable  extends Element {
 	/*
 	 * Test Collision :
 	 */
-	private boolean testCollision(Map m,ArrayList<ArrayList<ElementNonMovable>> map, int X, int Y) {
+	private boolean testCollision(Map m,ArrayList<ArrayList<ElementNonMovable>> map, int X, int Y,String dep) {
 		//Si on a un ElementNonMovable :
 		if( map.get(X).get(Y) instanceof Wall)
 		{
@@ -90,7 +90,7 @@ public abstract class ElementMovable  extends Element {
 			if( (el =  m.getElemMovable(X, Y)) != null)
 			{
 				//Si on a une Box au dessus de Mario on tente de déplacer
-				if(!el.Deplacer("z", m))
+				if(!el.Deplacer(dep, m))
 				{
 					return false;
 				}
