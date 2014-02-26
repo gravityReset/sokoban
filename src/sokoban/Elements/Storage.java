@@ -23,6 +23,7 @@ public class Storage extends ElementNonMovable{
 	/*
 	 * Getter de l'ID : "O"
 	 */
+	@Override
 	public String Show()
 	{
 		return id;

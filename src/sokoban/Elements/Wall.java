@@ -23,6 +23,7 @@ public class Wall extends ElementNonMovable {
 	/*
 	 * Getter de id : "="
 	 */
+	@Override
 	public String Show()
 	{
 		return id;
