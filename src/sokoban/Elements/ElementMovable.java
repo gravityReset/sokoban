@@ -39,11 +39,12 @@ public abstract class ElementMovable  extends Element {
 			}
 			else
 			{
+				
 				//On parcourt le tableau d'élément mouvable :
-				if(m.getElemMovable(CoordonneeX, CoordonneeY-1) != null)
+				if( ElementMovable el =  m.getElemMovable(CoordonneeX, CoordonneeY-1) != null)
 				{
 					//Si on a une Box au dessus de Mario on tente de déplacer
-					m.getElemMovable(CoordonneeX, CoordonneeY-1).Deplacer("z", m);
+					el.Deplacer("z", m);
 				}
 				this.CoordonneeY -= 1;
 			}
