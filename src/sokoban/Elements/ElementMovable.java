@@ -28,12 +28,12 @@ public abstract class ElementMovable  extends Element {
 		case "z": // Si on veux déplacer vers le haut :
 		{
 			//Si on a un ElementNonMovable :
-			if( map[this.CoordonneeX][this.CoordonneeY--] instanceof ElementNonMovable)
+			if( map.get(CoordonneeX).get(CoordonneeY) instanceof Wall)
 			{
 				break;
 			}
 			//Si on a un ElementMovable :
-			else if ( map[this.CoordonneeX][this.CoordonneeY] instanceof ElementMovable) {
+			else if ( map.get(CoordonneeX).get(CoordonneeY) instanceof ElementMovable) {
 				Deplacer("z", m);
 				break;
 			}
@@ -49,4 +49,22 @@ public abstract class ElementMovable  extends Element {
 		}
 	}
 	
+	
+	//--- MES GETTER : ---
+	
+	/*
+	 * Reçois la coordonnées X :
+	 */
+	public int getCoordonneeX()
+	{
+		return this.CoordonneeX;
+	}
+	
+	/*
+	 * Reçoi la coordonnee Y :
+	 */
+	public int getCoordonneeY()
+	{
+		return this.CoordonneeY;
+	}
 }
