@@ -10,12 +10,12 @@ public class Launcher
 		System.out.println("coucou");
 		
 		
-		Map map = new Map(2);
+		Map map = new Map(1);
 		map.Load();
 		
 		map.Show();
 		int i=0;
-		while(i!=10)
+		while(i!=20)
 		{
 			map.Deplacer();
 			map.Show();
