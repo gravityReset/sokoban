@@ -3,7 +3,7 @@ package sokoban.Elements;
 import java.util.ArrayList;
 
 import sokoban.Map;
-import sun.nio.cs.ext.ISCII91;
+
 
 
 public abstract class ElementMovable  extends Element {
@@ -40,16 +40,10 @@ public abstract class ElementMovable  extends Element {
 			else
 			{
 				//On parcourt le tableau d'élément mouvable :
-				for (ElementMovable i : elMouv) {
-					//On test si une Box se trouve au dessus de mario :
-					if(i.CoordonneeY == this.CoordonneeY-1)
-					{
-						//Si c'est le cas, on test si elle peux elle aussi se déplacer vers le haut
-						Deplacer("z", m);
-						break;
-					}
+				if(m.getElemMovable(CoordonneeX, CoordonneeY-1) != null)
+				{
+					Deplacer("z", m);
 				}
-				break;
 			}
 			
 		}
