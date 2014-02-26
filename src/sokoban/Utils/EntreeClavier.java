@@ -22,5 +22,10 @@ public class EntreeClavier {
 		char carac = str.charAt(0);
 		return carac;
 	}
+	
+	public String NextLine(){
+		String str = sc.nextLine();
+		return str;
+	}
 
 }
