@@ -16,8 +16,10 @@ public class Storage extends ElementNonMovable{
 	/*
 	 * Constructeur 
 	 */
-	public Storage() {
+	public Storage(int x, int y) {
 		// TODO Auto-generated constructor stub
+		this.CoordonneeX=x;
+		this.CoordonneeY=y;
 	}
 	
 	/*

@@ -13,7 +13,10 @@ public abstract class ElementMovable  extends Element {
 	//===========Méthodes :============
 	//=================================
 	
-	public abstract void Deplacer();
 	public abstract String Show();
+	public void Deplacer(String s)
+	{
+		
+	}
 	
 }

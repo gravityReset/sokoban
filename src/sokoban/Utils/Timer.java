@@ -5,13 +5,17 @@ public class Timer {
 	//Attribut de la Classe :
 	
 	static long chrono = 0 ; 
-	 
-	// Lancement du chrono 
+	
+	/*
+	 * Lancement du chrono 
+	 */
 	public static void StartTimer() { 
 		chrono = java.lang.System.currentTimeMillis() ; 
 	} 
 	 
-	// Arret du chrono 
+	/*
+	 * Arret du chrono 
+	 */
 	public static long StopTimer() { 
 		long chrono2 = java.lang.System.currentTimeMillis() ; 
 		long temps = chrono2 - chrono ;

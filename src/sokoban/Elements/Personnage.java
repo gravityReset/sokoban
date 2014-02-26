@@ -17,9 +17,10 @@ public class Personnage extends ElementMovable{
 	/*
 	 * Constructeur de Personnage :
 	 */
-	public Personnage() {
+	public Personnage(int x, int y) {
 		// TODO Auto-generated constructor stub
-		
+		this.CoordonneeX=x;
+		this.CoordonneeY=y;
 	}
 	
 	/*
@@ -31,11 +32,7 @@ public class Personnage extends ElementMovable{
 		return id;
 	}
 
-	@Override
-	public void Deplacer() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 

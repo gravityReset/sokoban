@@ -16,8 +16,10 @@ public class ElementVide extends ElementNonMovable{
 	/*
 	 * Constructeur :
 	 */
-	public ElementVide() {
+	public ElementVide(int x, int y) {
 		// TODO Auto-generated constructor stub
+		this.CoordonneeX=x;
+		this.CoordonneeY=y;
 	}
 
 	/*

@@ -16,8 +16,10 @@ public class Wall extends ElementNonMovable {
 	/*
 	 * Constructeur de Wall
 	 */
-	public Wall() {
+	public Wall(int x,int y) {
 		// TODO Auto-generated constructor stub
+		this.CoordonneeX=x;
+		this.CoordonneeY=x;
 	}
 	
 	/*

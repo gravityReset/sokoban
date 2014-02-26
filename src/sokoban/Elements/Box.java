@@ -19,9 +19,10 @@ public class Box extends ElementMovable {
 	 * Constructeur
 	 *
 	 */
-	public Box() {
+	public Box(int x, int y) {
 		// TODO Auto-generated constructor stub
-		
+		this.CoordonneeX=x;
+		this.CoordonneeY=y;
 		
 	}
 	
@@ -47,10 +48,6 @@ public class Box extends ElementMovable {
 						
 	}
 
-	@Override
-	public void Deplacer() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
