@@ -3,7 +3,9 @@
  */
 package sokoban;
 
-import java.util.List;
+import java.util.ArrayList;
+
+
 
 /**
  * @author 15824_000
@@ -11,12 +13,33 @@ import java.util.List;
  */
 public class Map {
 	private int level;
-	private List<List<Element>> structure ;
+	private ArrayList<ArrayList<Element>> structure ;//tableau de Element
 	
 	
 	public Map(int level )
 	{
-		
+		this.level = level;
+		structure=  new ArrayList<ArrayList<Element>>();
 	}
+
+	/**
+	 * @return the structure
+	 */
+	public ArrayList<ArrayList<Element>> getStructure()
+	{
+		return structure;
+	}
+
+
+
+	/**
+	 * @return the level
+	 */
+	public int getLevel()
+	{
+		return level;
+	}
+
+
 	
 }
