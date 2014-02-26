@@ -26,7 +26,7 @@ public class Box extends ElementMovable {
 	}
 	
 	/*
-	 * (getter de id)
+	 * Getter de id : "B"
 	 * @160794
 	 */
 	public String Show()
@@ -38,9 +38,15 @@ public class Box extends ElementMovable {
 	
 
 	/*
-	 * (Déplace un objet mobil)
+	 * Déplace un objet mobil
 	 * @160794
 	 */
+	public void Deplacer(String s) {
+		// TODO Auto-generated method stub
+						
+	}
+
+	@Override
 	public void Deplacer() {
 		// TODO Auto-generated method stub
 		
