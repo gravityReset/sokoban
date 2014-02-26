@@ -1,16 +1,18 @@
-package sokoban;
+package sokoban.Elements;
 
 
 public abstract class ElementMovable  extends Element {
 	
-	//=======================
-	//======Attributs :======
-	//=======================
+	//=================================
+	//===========Attributs :===========
+	//=================================
 	
-	//=======================
-	//======Méthodes :=======
-	//=======================
+
 	
-	public abstract void Deplacer();
+	//=================================
+	//===========Méthodes :============
+	//=================================
+	
+	protected abstract void Deplacer();
 	
 }

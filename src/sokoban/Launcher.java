@@ -4,15 +4,19 @@ package sokoban;
 public class Launcher
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		System.out.println("coucou");
-		// test timer
+		
+		// ---------- test timer (attendre 3sec) -------------
 		Timer.StartTimer();
-		for(double i=0;i<1000000000;i++){
-			
-		}
-		Timer.StopTimer();
+		
+		Thread.sleep(61000);
+		
+		
+		
+		System.out.println(Timer.StopTimer());
+		//----------------- Fin Test Timer ------------------- 
 	}
 
 }

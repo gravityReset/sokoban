@@ -1,4 +1,4 @@
-package sokoban;
+package sokoban.Elements;
 
 public abstract class Element {
 	
@@ -13,6 +13,6 @@ public abstract class Element {
 	//===========Méthodes :============
 	//=================================
 	
-	public abstract String Show();
+	protected abstract String Show();
 	
 }

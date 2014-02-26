@@ -1,7 +1,9 @@
 package sokoban;
 
 public class Timer {
-	// Fonctions pour le chronometre 
+	
+	//Attribut de la Classe :
+	
 	static long chrono = 0 ; 
 	 
 	// Lancement du chrono 
@@ -10,15 +12,13 @@ public class Timer {
 	} 
 	 
 	// Arret du chrono 
-	static void StopTimer() { 
-	long minute=0, seconde=0;
-	long chrono2 = java.lang.System.currentTimeMillis() ; 
-	long temps = chrono2 - chrono ;
-	
-	// on retranche les ms car inutile du point de vue humain
-	temps/=1000;
-	minute=temps/60;
-	seconde=temps%60;	
-	System.out.println("Temps ecoule = " + minute + "min"+seconde+"s") ; 
+	static long StopTimer() { 
+		long chrono2 = java.lang.System.currentTimeMillis() ; 
+		long temps = chrono2 - chrono ;
+		
+		// on retranche les ms car inutile du point de vue humain
+		temps/=1000;
+		
+		return temps; 
 	} 
 }
