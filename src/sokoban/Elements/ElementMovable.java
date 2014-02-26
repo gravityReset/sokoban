@@ -13,6 +13,6 @@ public abstract class ElementMovable  extends Element {
 	//===========Méthodes :============
 	//=================================
 	
-	protected abstract void Deplacer();
+	public abstract void Deplacer();
 	
 }
