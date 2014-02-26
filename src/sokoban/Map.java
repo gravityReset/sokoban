@@ -60,9 +60,10 @@ public class Map {
 			while ((ligne=br.readLine())!=null){
 				
 				structure.add(new ArrayList<Element>());
+				
 				for(int i=0;i<ligne.length();i++)
 				{
-					
+					structure.get(structure.size()-1).add( GetElem(ligne.charAt(i))); //on ajoute un element a la fin
 				}
 			}
 			br.close(); 
@@ -71,6 +72,27 @@ public class Map {
 			System.out.println(e.toString());
 		}
 	}
+	
+	private Element GetElem(char type)
+	{
+		switch (type)
+		{
+		case ' ':
+			return new ElementVide();
+		case '=':
+			return new Wall();
+		case 'X':
+			return new Personnage();
+		case 'B':
+			return new Box();
+		case 'O':
+			return new Storage();
+		default:
+			break;
+		}
+		return new ElementVide();
+	}
+	
 	
 	//=================================
 	//===========Getter et setter :====
