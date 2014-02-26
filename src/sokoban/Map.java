@@ -9,6 +9,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+
+
+
+
+
 import sokoban.Elements.*;
 
 
@@ -19,8 +24,8 @@ import sokoban.Elements.*;
  */
 public class Map {
 	private int level;
-	private ArrayList<ArrayList<Element>> structure ;//tableau de Element
-	
+	private ArrayList<ArrayList<ElementNonMovable>> structure ;//tableau de Element
+	private ArrayList<ElementMovable> elemMouvalble ;//tableau de Element
 	/**
 	 * Map
 	 * @param level
@@ -28,8 +33,8 @@ public class Map {
 	public Map(int level )
 	{
 		this.level = level;
-		structure=  new ArrayList<ArrayList<Element>>();// -> structure[0][0] = new ArrayList< ArrayList<Element>>;
-		
+		structure=  new ArrayList<ArrayList<ElementNonMovable>>();// -> structure[0][0] = new ArrayList< ArrayList<Element>>;
+		elemMouvalble = new ArrayList<ElementMovable>();
 	}
 	//=================================
 	//===========Méthodes :============
@@ -40,9 +45,9 @@ public class Map {
 	 */
 	public void Show()
 	{
-		for(ArrayList<Element> tabElements : structure)
+		for(ArrayList<ElementNonMovable> tabElements : structure)
 		{
-			for(Element elem  : tabElements)
+			for(ElementNonMovable elem  : tabElements)
 			{
 				System.out.print(elem.Show());
 			}
@@ -65,20 +70,49 @@ public class Map {
 			InputStreamReader ipsr=new InputStreamReader(ips);
 			BufferedReader br=new BufferedReader(ipsr);
 			String ligne;
+			Boolean read = false;
+			
+			int x=0,y=0;
+			
+			
 			while ((ligne=br.readLine())!=null){
 				
-				structure.add(new ArrayList<Element>());
-				
-				for(int i=0;i<ligne.length();i++)
+				if(ligne.contains(Integer.toString(level))  ) //si on arrive au bon niveau on permet de lire
+					read = true;
+				if(ligne.contains(Integer.toString(level+1)) )//si on arrie au niveau d'après on arrette de lire
 				{
-					structure.get(structure.size()-1).add( GetElem(ligne.charAt(i))); //on ajoute un element a la fin
+					read = false;
+					break;
 				}
+					
+				
+				if(read)
+				{
+					structure.add(new ArrayList<ElementNonMovable>());
+					y = structure.size()-1;
+					for(int i=0;i<ligne.length();i++)
+					{
+						x=i;
+						 Element elem =  GetElem(ligne.charAt(i),x,y); //on ajoute un element a la fin
+						 if(elem instanceof ElementNonMovable)
+							 structure.get(y).add((ElementNonMovable)elem);
+						 else
+						 {
+							 elemMouvalble.add((ElementMovable)elem);
+							 structure.get(y).add(new ElementVide(x, y));
+						 }
+							 
+					}
+				}
+				
 			}
 			br.close(); 
+			
 		}		
 		catch (Exception e){
 			System.out.println(e.toString());
 		}
+
 	}
 	
 	/**
@@ -86,24 +120,24 @@ public class Map {
 	 * @param caratere de l'element
 	 * @return l'element en raport avec sont caratere
 	 */
-	private Element GetElem(char type)
+	private Element GetElem(char type,int x,int y)
 	{
 		switch (type)
 		{
 		case ' ':
-			return new ElementVide();
+			return new ElementVide(x,y);
 		case '=':
-			return new Wall();
+			return new Wall(x,y);
 		case 'X':
-			return new Personnage();
+			return new Personnage(x,y);
 		case 'B':
-			return new Box();
+			return new Box(x,y);
 		case 'O':
-			return new Storage();
+			return new Storage(x,y);
 		default:
 			break;
 		}
-		return new ElementVide();
+		return new ElementVide(x,y);
 	}
 	
 	
@@ -114,7 +148,7 @@ public class Map {
 	/**
 	 * @return the structure
 	 */
-	public ArrayList<ArrayList<Element>> getStructure()
+	public ArrayList<ArrayList<ElementNonMovable>> getStructure()
 	{
 		return structure;
 	}
