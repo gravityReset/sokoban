@@ -5,19 +5,27 @@ import sokoban.Utils.Timer;
 public class Launcher
 {
 
-	public static void main(String[] args) throws InterruptedException
+	public static void main(String[] args) 
 	{
 		System.out.println("coucou");
 		
 		
-		Map map = new Map(0);
+		Map map = new Map(2);
 		map.Load();
 		map.Show();
 		
 		// ---------- test timer (attendre 3sec) -------------
 		Timer.StartTimer();
 		
-		Thread.sleep(3000);
+		try
+		{
+			Thread.sleep(3000);
+		}
+		catch (InterruptedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		

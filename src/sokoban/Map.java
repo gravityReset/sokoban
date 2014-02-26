@@ -12,10 +12,6 @@ import java.util.ArrayList;
 
 
 
-
-
-import java.util.concurrent.ExecutionException;
-
 import sokoban.Elements.*;
 
 
@@ -53,14 +49,15 @@ public class Map {
 	public void Show()
 	{
 		int x = 0, y = 0;
+		ElementMovable elemM;
 		for(ArrayList<ElementNonMovable> tabElements : structure)
 		{
 			x = 0;
 			for(ElementNonMovable elem  : tabElements)
 			{
-				if(getElemMovable(x, y) != null)
+				if( (elemM = getElemMovable(x, y)) != null)
 				{
-					System.out.print(elem.Show());
+					System.out.print(elemM.Show());
 				}
 				else
 				{
