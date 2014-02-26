@@ -25,8 +25,6 @@ public abstract class ElementMovable  extends Element {
 		//
 		//On récupère la map
 		ArrayList<ArrayList<ElementNonMovable>> map = m.getStructure();
-		//On récupère les éléments mouvable :
-		ArrayList<ElementMovable> elMouv = m.getElemMouvable();
 		
 		switch (s) {
 		
@@ -67,7 +65,8 @@ public abstract class ElementMovable  extends Element {
 				CoordonneeX += 1;
 				return true;
 			}
-			else return false;
+			else
+				return false;
 		}
 		default:
 			return false;
