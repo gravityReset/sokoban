@@ -5,20 +5,20 @@ public class Timer {
 	static long chrono = 0 ; 
 	 
 	// Lancement du chrono 
-	static void Go_Chrono() { 
+	static void StartTimer() { 
 		chrono = java.lang.System.currentTimeMillis() ; 
 	} 
 	 
 	// Arret du chrono 
-	static void Stop_Chrono() { 
-		long minute=0, seconde=0;
-		long chrono2 = java.lang.System.currentTimeMillis() ; 
-		long temps = chrono2 - chrono ;
-		
-		// on retranche les ms car inutile du point de vue humain
-		temps/=1000;
-		minute=temps/60;
-		seconde=temps%60;	
-		System.out.println("Temps ecoule = " + minute + "min"+seconde+"s") ; 
+	static void StopTimer() { 
+	long minute=0, seconde=0;
+	long chrono2 = java.lang.System.currentTimeMillis() ; 
+	long temps = chrono2 - chrono ;
+	
+	// on retranche les ms car inutile du point de vue humain
+	temps/=1000;
+	minute=temps/60;
+	seconde=temps%60;	
+	System.out.println("Temps ecoule = " + minute + "min"+seconde+"s") ; 
 	} 
 }

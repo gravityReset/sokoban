@@ -8,11 +8,11 @@ public class Launcher
 	{
 		System.out.println("coucou");
 		// test timer
-		Timer.Go_Chrono();
+		Timer.StartTimer();
 		for(double i=0;i<1000000000;i++){
 			
 		}
-		Timer.Stop_Chrono();
+		Timer.StopTimer();
 	}
 
 }
