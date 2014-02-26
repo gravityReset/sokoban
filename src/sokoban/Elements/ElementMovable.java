@@ -32,19 +32,42 @@ public abstract class ElementMovable  extends Element {
 		
 		case "z": // Si on veux déplacer vers le haut :
 		{
-			return testCollision(m, map, CoordonneeX,CoordonneeY-1);
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			{
+				CoordonneeY -= 1;
+				return true;
+			}
+			else
+				return false;
 		}
 		case "s": // Si on veux déplacer vers le Bas :
 		{
-			return testCollision(m, map, CoordonneeX,CoordonneeY+1);
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			{
+				CoordonneeY += 1;
+				return true;
+			}
+			else
+				return false;
 		}
 		case "q": // Si on veux déplacer vers la Gauche :
 		{
-			return testCollision(m, map, CoordonneeX-1,CoordonneeY);
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			{
+				CoordonneeX -= 1;
+				return true;
+			}
+			else
+				return false;
 		}
 		case "d": // Si on veux déplacer vers la Droite :
 		{
-			return testCollision(m, map, CoordonneeX+1,CoordonneeY);
+			if(testCollision(m, map, CoordonneeX,CoordonneeY-1))
+			{
+				CoordonneeX += 1;
+				return true;
+			}
+			else return false;
 		}
 		default:
 			return false;
@@ -73,7 +96,8 @@ public abstract class ElementMovable  extends Element {
 					return false;
 				}
 			}
-			this.CoordonneeY -= 1;
+			
+			
 			return true;
 		}
 	}
