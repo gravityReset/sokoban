@@ -16,11 +16,11 @@ public class EntreeClavier {
 	 * Détection de la touche appuyée
 	 * @return l'entrée clavier
 	 */
-	public char NextEntree(){
+	public String NextEntree(){
 
 		String str = sc.nextLine();
 		char carac = str.charAt(0);
-		return carac;
+		return String.valueOf(carac);
 	}
 	
 	public String NextLine(){

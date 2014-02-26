@@ -12,8 +12,11 @@ public class Launcher
 		
 		Map map = new Map(2);
 		map.Load();
+		
 		map.Show();
 		
+		map.Deplacer();
+		map.Show();
 		// ---------- test timer (attendre 3sec) -------------
 		Timer.StartTimer();
 		

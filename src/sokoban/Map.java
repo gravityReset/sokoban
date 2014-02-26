@@ -12,7 +12,9 @@ import java.util.ArrayList;
 
 
 
+
 import sokoban.Elements.*;
+import sokoban.Utils.EntreeClavier;
 
 
 
@@ -25,6 +27,7 @@ public class Map {
 	private ArrayList<ArrayList<ElementNonMovable>> structure ;//tableau de Element
 	private ArrayList<ElementMovable> elemMouvable ;//tableau de Element
 	
+	private EntreeClavier clavier;
 
 
 	/**
@@ -36,6 +39,7 @@ public class Map {
 		this.level = level;
 		structure=  new ArrayList<ArrayList<ElementNonMovable>>();// -> structure[0][0] = new ArrayList< ArrayList<Element>>;
 		elemMouvable = new ArrayList<ElementMovable>();
+		clavier = new EntreeClavier();
 	}
 	
 	
@@ -71,6 +75,19 @@ public class Map {
 		}
 	}
 	
+	
+	public void Deplacer()
+	{
+		for(ElementMovable elem  : elemMouvable)
+		{
+			if(elem instanceof Personnage)
+			{
+				elem.Deplacer(clavier.NextEntree() , this);
+				break;
+			}
+				
+		}
+	}
 	
 	/**
 	 * Charge la map demandé
