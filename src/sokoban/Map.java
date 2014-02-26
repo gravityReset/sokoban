@@ -19,7 +19,7 @@ public class Map {
 	public Map(int level )
 	{
 		this.level = level;
-		structure=  new ArrayList<ArrayList<Element>>();
+		structure=  new ArrayList<ArrayList<Element>>();// -> structure[0][0] = new ArrayList< ArrayList<Element>>;
 	}
 
 	/**
