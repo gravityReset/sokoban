@@ -1,5 +1,4 @@
 package sokoban;
-import java.util.Scanner;
 
 public class Launcher
 {
@@ -18,11 +17,7 @@ public class Launcher
 		System.out.println(Timer.StopTimer());
 		//----------------- Fin Test Timer ------------------- 
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Veuillez saisir un mot :");
-		String str = sc.nextLine();
-		char carac = str.charAt(0);
-		System.out.println("Vous avez saisi la lettre: " + carac);
+
 	}
 
 }
