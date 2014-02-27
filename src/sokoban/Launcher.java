@@ -1,5 +1,6 @@
 package sokoban;
 
+import sokoban.Utils.Score;
 import sokoban.Utils.Timer;
 
 public class Launcher
@@ -16,6 +17,8 @@ public class Launcher
 		
 		map.Show();
 		int i=0;
+
+		int level=1;
 		while(i!=20)
 		{
 			map.Deplacer();
@@ -24,10 +27,9 @@ public class Launcher
 		}
 		
 		// ---------- test timer (attendre 3sec) -------------
-
-		System.out.println(Timer.StopTimer());
+		long score = Timer.StopTimer();
 		//----------------- Fin Test Timer ------------------- 
-		
+		Score.AddScore(score, level);
 		
 	}
 

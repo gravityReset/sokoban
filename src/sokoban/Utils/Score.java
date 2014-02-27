@@ -22,9 +22,9 @@ public class Score{
 				FileWriter fw = new FileWriter("Score.txt", true);
 				
 				fw.write(pseudo);
-				fw.write((int) score);
-				fw.write(level);
-				fw.write("\n");
+				fw.write(":"+String.valueOf(score));
+				fw.write(":"+level);
+				fw.write("\r\n");
 				fw.close();
 				
 			} catch (IOException e) {
