@@ -12,6 +12,7 @@ public class Launcher
 		
 		Map map = new Map(1);
 		map.Load();
+		Timer.StartTimer();
 		
 		map.Show();
 		int i=0;
@@ -23,20 +24,7 @@ public class Launcher
 		}
 		
 		// ---------- test timer (attendre 3sec) -------------
-		Timer.StartTimer();
-		
-		try
-		{
-			Thread.sleep(3000);
-		}
-		catch (InterruptedException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
+
 		System.out.println(Timer.StopTimer());
 		//----------------- Fin Test Timer ------------------- 
 		
