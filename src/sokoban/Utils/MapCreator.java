@@ -15,7 +15,7 @@ public class MapCreator
 	ArrayList<String> map;
 
 
-	MapCreator()
+	public MapCreator()
 	{
 		Boolean personnage = false;
 
@@ -27,7 +27,7 @@ public class MapCreator
 			String stringToSave = ""; // string qu'on va enregistrer après
 										// chaque truc
 
-			if (m != "exit")
+			if (m.charAt(0) != 'q')
 			{
 				for (int i = 0; i < m.length(); i++)// on parcours la ligne pour
 													// vérifier les entrés
@@ -68,7 +68,7 @@ public class MapCreator
 		try
 		{
 			FileWriter fw = new FileWriter("map.sok", true);
-			fw.write(getLastLevel());
+			fw.write(Integer.toString( getLastLevel()+1));
 			fw.write("\r\n");
 			
 			for (String m : map)
@@ -101,8 +101,6 @@ public class MapCreator
 		InputStream ips=new FileInputStream("map.sok"); 
 		InputStreamReader ipsr=new InputStreamReader(ips);
 		BufferedReader br = new BufferedReader(ipsr);
-		
-		
 		
 			while ((ligne=br.readLine())!=null)
 			{
