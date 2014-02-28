@@ -1,6 +1,8 @@
 
 package sokoban.Utils;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MapCreator
@@ -47,13 +49,33 @@ public class MapCreator
 
 				map.add(stringToSave);// on ajoute la ligne
 			}
+			else
+				// on quite quand on est egale a exit
+				break;
 
-		} while (map.get(map.size()) != "exit");
+		} while (true);
 	}
-	
+
+
 	void Save()
 	{
-		
+		try
+		{
+			FileWriter fw = new FileWriter("map.sok", true);
+
+			for (String m : map)
+			{
+				fw.write(m);
+				fw.write("\r\n");
+			}
+			fw.close();
+
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

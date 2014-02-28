@@ -95,7 +95,7 @@ public class Map {
 	public void Load()
 	{
 		structure.clear();
-		String fichier ="test_map.sok";
+		String fichier ="map.sok";
 		
 		//lecture du fichier texte	
 		try{
