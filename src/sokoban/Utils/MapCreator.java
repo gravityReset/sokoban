@@ -1,8 +1,12 @@
 
 package sokoban.Utils;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MapCreator
@@ -56,13 +60,17 @@ public class MapCreator
 		} while (true);
 	}
 
-
-	void Save()
+	/**
+	 * enregistrer le niveau
+	 */
+	public void Save()
 	{
 		try
 		{
 			FileWriter fw = new FileWriter("map.sok", true);
-
+			fw.write(getLastLevel());
+			fw.write("\r\n");
+			
 			for (String m : map)
 			{
 				fw.write(m);
@@ -75,6 +83,59 @@ public class MapCreator
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * recupérer le dernier niveau enregistré
+	 * @return le niveau en int
+	 */
+	private int getLastLevel()
+	{
+		String ligne;
+		
+		int lastLevel = 1;
+		
+		try
+		{
+		InputStream ips=new FileInputStream("map.sok"); 
+		InputStreamReader ipsr=new InputStreamReader(ips);
+		BufferedReader br = new BufferedReader(ipsr);
+		
+		
+		
+			while ((ligne=br.readLine())!=null)
+			{
+				int level;
+				if((level = TryParseInt(ligne)) != -1)
+					lastLevel = level;
+			}
+			
+			br.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return lastLevel;
+	}
+
+
+	/**
+	 * essai de parser en int
+	 * @param text a parser
+	 * @return le parse ou -1 
+	 */
+	private int TryParseInt(String text)
+	{
+		try
+		{
+			return Integer.parseInt(text);
+		}
+		catch (NumberFormatException ex)
+		{
+			return -1;
 		}
 	}
 
