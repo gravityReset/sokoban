@@ -23,11 +23,15 @@ public class MapCreator
 		EntreeClavier ec = new EntreeClavier();
 		do
 		{
+			System.out.println("Editeur de niveau:");
+			System.out.println("q:quitter et enregistrer | = : murs | X : personnage | B : box | O : storage");
+			System.out.println("Si l'entré est invalide elle sera enregistré en tant que espace");
+			
 			String m = ec.NextLine();
 			String stringToSave = ""; // string qu'on va enregistrer après
 										// chaque truc
 
-			if (m.charAt(0) != 'q')
+			if (m.length() > 0 && m.charAt(0) != 'q')
 			{
 				for (int i = 0; i < m.length(); i++)// on parcours la ligne pour
 													// vérifier les entrés
@@ -68,7 +72,9 @@ public class MapCreator
 		try
 		{
 			FileWriter fw = new FileWriter("map.sok", true);
-			fw.write(Integer.toString( getLastLevel()+1));
+			String niveau = Integer.toString( getLastLevel()+1);
+			System.out.println("niveau numero " + niveau + " enregistré!");
+			fw.write(niveau);
 			fw.write("\r\n");
 			
 			for (String m : map)

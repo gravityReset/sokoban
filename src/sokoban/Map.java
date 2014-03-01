@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 
 
+
+
 import sokoban.Elements.*;
 import sokoban.Utils.EntreeClavier;
 
@@ -28,6 +30,8 @@ public class Map {
 	private ArrayList<ElementMovable> elemMouvable ;//tableau de Element
 	
 	private EntreeClavier clavier;
+	private int nbStorageTrue;
+	private int nbStorage;
 
 
 	/**
@@ -141,12 +145,26 @@ public class Map {
 			}
 			br.close(); 
 			
+			// On compte le nombre d'éléments Storage non-remplis au début de la map :
+			for (ArrayList<ElementNonMovable> nomStorage : structure ) {
+				for (ElementNonMovable Storage : nomStorage) {
+					if(Storage instanceof Storage)
+					{
+						nbStorage +=1;
+					}
+				}
+			} 
+
+			nbStorageTrue = nbStorage;
+			
 		}		
 		catch (Exception e){
 			System.out.println(e.toString());
 		}
 
 	}
+	
+	
 	
 	/**
 	 * 
@@ -172,6 +190,36 @@ public class Map {
 		}
 		return new ElementVide(x,y);
 	}
+	
+	
+	
+	/**
+	 * Compte le nombre de case rempli
+	 * @return vrai si on est a 0 et false sinon
+	 */
+	public Boolean CountStorageFull()
+	{
+		//On compte le nombre de Storage full:
+		for (ArrayList<ElementNonMovable> nomStorage : structure ) {
+			for (ElementNonMovable Storage : nomStorage) {
+				if(Storage instanceof Storage)
+				{
+					if(Storage.full==true)
+						nbStorageTrue -=1;
+					
+				}
+			}
+		}
+		
+		if(nbStorageTrue==0)
+			return true;
+		else
+		{
+			nbStorageTrue = nbStorage;
+			return false;
+		}
+	}
+	
 	
 	/**
 	 * 
