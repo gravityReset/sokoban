@@ -16,73 +16,92 @@ public class Launcher
 	public static void main(String[] args) 
 	{
 		System.out.println("coucou");
+		 
+		String choixJeu = args[1];
 		
-		
-		//MapCreator mc = new MapCreator();
-		//mc.Save();
-		
-		
-		
-		Map map = new Map(1);
-		map.Load();
-		Timer.StartTimer();
-		
-		map.Show();
-		int i=0;
-
-		int nbStorage=0;
-		int nbStorageTrue;
-		int level=1;
-		
-		// On compte le nombre d'éléments Storage non-remplis au début de la map :
-		for (ArrayList<ElementNonMovable> nomStorage : map.getStructure() ) {
-			for (ElementNonMovable Storage : nomStorage) {
-				if(Storage instanceof Storage)
-				{
-					nbStorage +=1;
-				}
-			}
-		} 
-
-		nbStorageTrue = nbStorage;
-		
-		System.out.println(nbStorage);
-		
-		while(i!=100)
-
+		switch(choixJeu)
 		{
-			//On compte le nombre de Storage full:
-			for (ArrayList<ElementNonMovable> nomStorage : map.getStructure() ) {
-				for (ElementNonMovable Storage : nomStorage) {
-					if(Storage instanceof Storage)
-					{
-						if(Storage.full==true)
-							nbStorageTrue -=1;
-						
-					}
-				}
-			}
-			
-			// Si tout les Storage sont rempli, on arrete la partie :
-			if (nbStorageTrue ==0)
-				break;
-			else
+			case "--create":
 			{
-				nbStorageTrue = nbStorage;
-				map.Deplacer();
-				map.Show();
-				i++;
+				MapCreator mc = new MapCreator();
+				mc.Save();
+				break;
 			}
-			
-			
+			case "--level":
+			{
+				String lvl=args[2];
+				
+				// ====================== JEU ========================
+				int level=Integer.parseInt(lvl);
+				Map map = new Map(level);
+				map.Load();
+				map.Show();
+				
+				Timer.StartTimer();
+				
+				int i=0;
+				int nbStorage=0;
+				int nbStorageTrue;
+				
+				
+				// On compte le nombre d'éléments Storage non-remplis au début de la map :
+				for (ArrayList<ElementNonMovable> nomStorage : map.getStructure() ) {
+					for (ElementNonMovable Storage : nomStorage) {
+						if(Storage instanceof Storage)
+						{
+							nbStorage +=1;
+						}
+					}
+				} 
 
+				nbStorageTrue = nbStorage;
+				
+				System.out.println(nbStorage);
+				
+				while(i!=100)
+
+				{
+					//On compte le nombre de Storage full:
+					for (ArrayList<ElementNonMovable> nomStorage : map.getStructure() ) {
+						for (ElementNonMovable Storage : nomStorage) {
+							if(Storage instanceof Storage)
+							{
+								if(Storage.full==true)
+									nbStorageTrue -=1;
+								
+							}
+						}
+					}
+					
+					// Si tout les Storage sont rempli, on arrete la partie :
+					if (nbStorageTrue ==0)
+						break;
+					else
+					{
+						nbStorageTrue = nbStorage;
+						map.Deplacer();
+						map.Show();
+						i++;
+					}
+					
+					
+
+				}
+				
+				// ---------- test timer (attendre 3sec) -------------
+				long score = Timer.StopTimer();
+				System.out.println(score);
+				//----------------- Fin Test Timer ------------------- 
+				Score.AddScore(score, level);
+				
+				// =================== FIN JEU =======================
+				break;
+			}
+			default:
+				break;
 		}
 		
-		// ---------- test timer (attendre 3sec) -------------
-		long score = Timer.StopTimer();
-		System.out.println(score);
-		//----------------- Fin Test Timer ------------------- 
-		Score.AddScore(score, level);
+		
 		
 	}
 
