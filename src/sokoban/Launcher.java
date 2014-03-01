@@ -1,5 +1,11 @@
 package sokoban;
 
+import java.io.Console;
+import java.util.ArrayList;
+
+import sokoban.Elements.Element;
+import sokoban.Elements.ElementNonMovable;
+import sokoban.Elements.Storage;
 import sokoban.Utils.MapCreator;
 import sokoban.Utils.Score;
 import sokoban.Utils.Timer;
@@ -11,10 +17,11 @@ public class Launcher
 	{
 		System.out.println("coucou");
 		
-		MapCreator mc = new MapCreator();
-		mc.Save();
 		
-		/*
+		//MapCreator mc = new MapCreator();
+		//mc.Save();
+		
+		
 		
 		Map map = new Map(1);
 		map.Load();
@@ -23,19 +30,60 @@ public class Launcher
 		map.Show();
 		int i=0;
 
+		int nbStorage=0;
+		int nbStorageTrue;
 		int level=1;
-		while(i!=20)
+		
+		// On compte le nombre d'éléments Storage non-remplis au début de la map :
+		for (ArrayList<ElementNonMovable> nomStorage : map.getStructure() ) {
+			for (ElementNonMovable Storage : nomStorage) {
+				if(Storage instanceof Storage)
+				{
+					nbStorage +=1;
+				}
+			}
+		} 
+
+		nbStorageTrue = nbStorage;
+		
+		System.out.println(nbStorage);
+		
+		while(i!=100)
+
 		{
-			map.Deplacer();
-			map.Show();
-			i++;
+			//On compte le nombre de Storage full:
+			for (ArrayList<ElementNonMovable> nomStorage : map.getStructure() ) {
+				for (ElementNonMovable Storage : nomStorage) {
+					if(Storage instanceof Storage)
+					{
+						if(Storage.full==true)
+							nbStorageTrue -=1;
+						
+					}
+				}
+			}
+			
+			// Si tout les Storage sont rempli, on arrete la partie :
+			if (nbStorageTrue ==0)
+				break;
+			else
+			{
+				nbStorageTrue = nbStorage;
+				map.Deplacer();
+				map.Show();
+				i++;
+			}
+			
+			
+
 		}
 		
 		// ---------- test timer (attendre 3sec) -------------
 		long score = Timer.StopTimer();
+		System.out.println(score);
 		//----------------- Fin Test Timer ------------------- 
 		Score.AddScore(score, level);
-		*/
+		
 	}
 
 }
