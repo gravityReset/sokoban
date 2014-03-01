@@ -93,7 +93,9 @@ public abstract class ElementMovable  extends Element {
 					return false;
 				}
 			}
-			
+		
+		//Si la case derriere une caisse est un Storage : on le remplis : => Boolean full=true;
+		
 			
 			return true;
 		}

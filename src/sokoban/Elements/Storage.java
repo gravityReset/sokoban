@@ -6,6 +6,7 @@ public class Storage extends ElementNonMovable{
 	//===========Attributs :===========
 	//=================================
 	
+	boolean full=false;
 	String id="O";
 	
 	
