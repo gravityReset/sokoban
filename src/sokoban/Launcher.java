@@ -16,19 +16,30 @@ public class Launcher
 
 			String choixJeu = args[0];
 
+			String lvl;
+			if (args[1] != null)
+				lvl = args[1];
+			else
+				lvl = "1";
+			
 			switch (choixJeu)
 			{
 			case "--create":
 				MapCreator mc = new MapCreator();
 				mc.Save();
 				break;
-
+				
+				
+			case "--score":
+				int levl = Integer.parseInt(lvl);
+				
+				Score.ShowScore(levl);
+				
+				break;
+				
+				
 			case "--level":
-				String lvl;
-				if (args[1] != null)
-					lvl = args[1];
-				else
-					lvl = "1";
+				
 
 				// ====================== JEU ========================
 				int level = Integer.parseInt(lvl);
@@ -52,15 +63,12 @@ public class Launcher
 
 				}
 
-				// ---------- test timer (attendre 3sec) -------------
 				long score = Timer.StopTimer();
-				System.out.println(score);
-				// ----------------- Fin Test Timer -------------------
+
 				Score.AddScore(score, level);
 
 				// =================== FIN JEU =======================
 				break;
-			// TODO: --score [level]
 			default:
 				break;
 			}
