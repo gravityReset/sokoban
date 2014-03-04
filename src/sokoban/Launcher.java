@@ -12,8 +12,8 @@ public class Launcher
 	{
 		try
 		{
-			System.out.println("coucou");
-
+			System.out.println("_______________SOKOBAN______________");
+			System.out.println("____________________________________");
 			String choixJeu = args[0];
 
 			String lvl;
